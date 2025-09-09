@@ -1,0 +1,203 @@
+{
+  "Hot Beverages": [
+    { "name": "Tea", "price": 10 },
+    { "name": "Masala Tea", "price": 15 },
+    { "name": "Hot Coffee", "price": 25 }
+  ],
+  "Mocktails": [
+    { "name": "Virgin Mojito", "price": 59 },
+    { "name": "Blue Lagoon", "price": 69 }
+  ],
+  "Ice Tea": [
+    { "name": "Orange Ice Tea", "price": 59 },
+    { "name": "Strawberry Ice Tea", "price": 59 },
+    { "name": "Lemon Mint Ice Tea", "price": 59 },
+    { "name": "Blue Curacao", "price": 59 },
+    { "name": "Watermelon", "price": 40 }
+  ],
+  "Cold Coffee": [
+    { "name": "Small", "price": 50 },
+    { "name": "Large", "price": 60 }
+  ],
+  "Shakes": [
+    { "name": "Vanilla Shake", "price": 69 },
+    { "name": "Strawberry Shake", "price": 59 },
+    { "name": "Chocolate Shake", "price": 79 },
+    { "name": "Black Currant Shake", "price": 89 },
+    { "name": "Banana Shake", "price": 59 },
+    { "name": "Papita Shake", "price": 59 },
+    { "name": "Mango Shake", "price": 59 },
+    { "name": "Kit-Kat Shake", "price": 89 },
+    { "name": "Oreo Shake", "price": 79 },
+    { "name": "Butterscotch Shake", "price": 79 },
+    { "name": "Kesar Pista Shake", "price": 89 }
+  ],
+  "Juices": [
+    { "name": "Papita", "price": 50 },
+    { "name": "Mango", "price": 60 },
+    { "name": "Banana", "price": 60 },
+    { "name": "Mosambi", "price": 60 },
+    { "name": "Pineapple", "price": 50 },
+    { "name": "Orange", "price": 60 }
+  ],
+  "Sandwich": [
+    { "name": "Cheese Grilled", "price": 59 },
+    { "name": "Veg Grilled", "price": 79 },
+    { "name": "Cheese Burst", "price": 49 },
+    { "name": "Paneer Makhani", "price": 69 },
+    { "name": "Bombay Sandwich", "price": 59 },
+    { "name": "Paneer Cheese", "price": 89 }
+  ],
+  "Fries": [
+    { "name": "Classic Salted", "price": 49 },
+    { "name": "Peri Peri Fries", "price": 59 },
+    { "name": "Cheese Fries", "price": 79 }
+  ],
+  "Wraps": [
+    { "name": "Aloo Tikki Masala", "price": 59 },
+    { "name": "Cheese Wrap", "price": 69 },
+    { "name": "Paneer Wrap", "price": 79 }
+  ],
+  "Burgers": [
+    { "name": "Veg Patty Burger", "price": 59 },
+    { "name": "Aloo Tikki Burger", "price": 49 },
+    { "name": "Boss Special", "price": 79 },
+    { "name": "Cheese Burger", "price": 69 }
+  ],
+  "Pizza": [
+    { "name": "Boss Special Pizza", "price": 169 },
+    { "name": "Farmhouse Pizza", "price": 129 },
+    { "name": "Veg Loaded", "price": 139 },
+    { "name": "Margherita Pizza", "price": 119 },
+    { "name": "OTC Pizza", "price": 99 },
+    { "name": "Corn Pizza", "price": 109 }
+  ],
+  "Chinese": [
+    { "name": "Spring Roll", "price": 79 },
+    { "name": "Chilli Potato", "price": 79 },
+    { "name": "Hakka Noodles", "price": 79 },
+    { "name": "Honey Chilli Potato", "price": 89 },
+    { "name": "Chowmein", "price": 89 }
+  ],
+  "Momos": [
+    { "name": "Steam Momos", "price": 59 },
+    { "name": "Fried Momos", "price": 69 },
+    { "name": "Kurkure Momos", "price": 79 }
+  ],
+  "Maggie": [
+    { "name": "Veg Maggie", "price": 49 },
+    { "name": "Plain Maggie", "price": 39 },
+    { "name": "Cheese Butter Maggie", "price": 79 },
+    { "name": "Tandoori Masala Maggie", "price": 69 }
+  ],
+  "Pasta": [
+    { "name": "White Sauce Pasta", "price": 109 },
+    { "name": "Red Sauce Pasta", "price": 109 },
+    { "name": "Makhani Sauce Pasta", "price": 129 },
+    { "name": "Pink Sauce Pasta", "price": 119 }
+  ],
+  "Combos": [
+    { "name": "Cold Coffee + Burger + Fries", "price": 129 },
+    { "name": "Cold Coffee + Sandwich + Fries", "price": 139 },
+    { "name": "Cold Coffee + Wrap + Fries", "price": 149 },
+    { "name": "Cold Coffee + Pizza + Fries", "price": 179 }
+  ],
+  "Snacks": [
+    { "name": "Paneer Tikka", "price": 149 },
+    { "name": "Malai Tikka", "price": 169 },
+    { "name": "Achari Tikka", "price": 159 },
+    { "name": "Ajwani Tikka", "price": 159 },
+    { "name": "Veg Seek Kabab", "price": 149 },
+    { "name": "Tandoori Chap", "price": 139 },
+    { "name": "Malai Chap", "price": 149 }
+  ],
+  "Paratha": [
+    { "name": "Aloo Paratha", "price": 40 },
+    { "name": "Payaj Paratha", "price": 50 },
+    { "name": "Mix Paratha", "price": 50 },
+    { "name": "Gobhi Paratha", "price": 50 },
+    { "name": "Paneer Paratha", "price": 60 }
+  ],
+  "Rice Special": [
+    { "name": "Rajama + Rice", "price": 159 },
+    { "name": "Daal + Rice", "price": 149 },
+    { "name": "Chole + Rice", "price": 159 },
+    { "name": "Curry + Rice", "price": 139 }
+  ],
+  "Rice": [
+    { "name": "Plain Rice", "price": 69 },
+    { "name": "Jeera Rice", "price": 79 },
+    { "name": "Fried Rice", "price": 89 },
+    { "name": "Veg Pulao", "price": 109 }
+  ],
+  "Salad": [
+    { "name": "Onion Salad", "price": 19 },
+    { "name": "Green Salad", "price": 49 }
+  ],
+  "Papad": [
+    { "name": "Masala Papad", "price": 40 },
+    { "name": "Roasted Papad", "price": 15 }
+  ],
+  "Roti & Naan": [
+    { "name": "Plain Tawa Roti", "price": 12 },
+    { "name": "Butter Tawa Roti", "price": 15 },
+    { "name": "Plain Tandoori Roti", "price": 12 },
+    { "name": "Butter Tandoori Roti", "price": 15 },
+    { "name": "Butter Naan", "price": 35 },
+    { "name": "Garlic Naan", "price": 45 },
+    { "name": "Cheese Naan", "price": 59 },
+    { "name": "Paneer Naan", "price": 65 },
+    { "name": "Stuffed Naan", "price": 50 },
+    { "name": "Laccha Paratha", "price": 35 }
+  ],
+  "Raita": [
+    { "name": "Boondi Raita", "price": 59 },
+    { "name": "Veg Raita", "price": 69 },
+    { "name": "Chach (Masala)", "price": 20 },
+    { "name": "Plain Dahi", "price": 40 }
+  ],
+  "Thali": [
+    { "name": "Roti (5)+Dal+Rice+Sabji", "price": 149 },
+    { "name": "Roti (3)+Laccha Paratha(1)+Paneer+Rice+Dal+Chach+Papad", "price": 229 }
+  ],
+  "Paneer Curries": [
+    { "name": "Sahi Paneer", "price": 179 },
+    { "name": "Kadai Paneer", "price": 179 },
+    { "name": "Paneer Makhani", "price": 189 },
+    { "name": "Matar Paneer", "price": 169 },
+    { "name": "Palak Paneer", "price": 179 },
+    { "name": "Paneer Tikka Masala", "price": 189 },
+    { "name": "Paneer Butter Masala", "price": 199 },
+    { "name": "Paneer Do-Payaza", "price": 189 }
+  ],
+  "Vegetables": [
+    { "name": "Aloo-Jeera", "price": 99 },
+    { "name": "Aloo-Matar", "price": 99 },
+    { "name": "Aloo-Payaj", "price": 109 },
+    { "name": "Aloo-Chola", "price": 139 },
+    { "name": "Sev-Tamatar", "price": 119 },
+    { "name": "Sev-Bhaji", "price": 129 },
+    { "name": "Chana Masala", "price": 129 },
+    { "name": "Gatta Masala", "price": 139 },
+    { "name": "Mix-Veg", "price": 149 },
+    { "name": "Matar Mushroom", "price": 169 },
+    { "name": "Mushroom Masala", "price": 179 },
+    { "name": "Mushroom Do-Payaza", "price": 189 },
+    { "name": "Dahi Fry", "price": 119 },
+    { "name": "Malai Kofta", "price": 189 },
+    { "name": "Kaju Curry", "price": 209 },
+    { "name": "Malai Payaj", "price": 179 },
+    { "name": "Aloo-Gobhi", "price": 119 },
+    { "name": "Gobhi Masala", "price": 119 },
+    { "name": "Masala Chaap", "price": 149 },
+    { "name": "Bhindi Fry", "price": 129 },
+    { "name": "Bhindi Masala", "price": 139 },
+    { "name": "Gajar Matar", "price": 139 },
+    { "name": "Paneer Bhuji", "price": 189 }
+  ],
+  "Dal": [
+    { "name": "Dal Fry", "price": 99 },
+    { "name": "Dal Tadka", "price": 109 },
+    { "name": "Dal Makhani", "price": 169 }
+  ]
+}

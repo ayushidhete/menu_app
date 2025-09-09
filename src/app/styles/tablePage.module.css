@@ -1,0 +1,195 @@
+.page {
+  padding: 16px;
+  background: #0b0f1ab5;
+  min-height: 100vh;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+
+  width: 90%;
+  max-width: 480px;   
+  margin: 0 auto;     
+}
+
+
+.heading {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.category {
+  margin-bottom: 40px;
+}
+
+.categoryTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: darkslategray;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+.price {
+  font-size: 14px;
+  color: #fbbf24;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #334155;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: #475569;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.count {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.toggleGroup {
+  display: inline-flex;
+  gap: 8px;
+  background: #0b1220;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.toggleBtn {
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+}
+.toggleBtn:hover { color: #fff; }
+.toggleBtn:disabled { opacity: .6; cursor: not-allowed; }
+
+.active {
+  background: #111827;
+  color: #fff;
+  border-color: #334155;
+}
+
+.badge {
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Orders view */
+.orderWrap { 
+    width: 90%;
+    max-width: 640px; 
+    margin: 0 auto; 
+}
+.sumList { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sumRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 12px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+.sumLeft { display: flex; align-items: baseline; gap: 8px; }
+.sumName { font-weight: 600; color: #f1f5f9; }
+.sumQty { font-style: normal; opacity: .75; }
+.sumAmount { font-weight: 700; color: #fbbf24; }
+
+.totalRow {
+  display: flex; justify-content: space-between;
+  border-top: 1px dashed rgba(255,255,255,.25);
+  padding-top: 10px; margin-top: 12px; font-size: 1.05rem;
+}
+
+.actionsRow { display: flex; gap: 10px; margin-top: 12px; }
+.clearBtn, .primaryBtn {
+  flex: 1; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid #334155; background: #111827; color: #fff; font-weight: 600;
+}
+.primaryBtn { background: #1e293b; border-color: #475569; }
+.clearBtn:hover { background: #1f2937; }
+.primaryBtn:hover { background: #263445; }
+.muted { opacity: .7; }

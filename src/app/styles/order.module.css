@@ -1,0 +1,158 @@
+.container {
+  margin: 20px auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+.card {
+  border: 2px solid darkslategray;
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px darkslategray;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cardHeader p {
+  margin: 0 8px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.cardBody {
+  margin-top: 14px;
+  padding-left: 4px;
+  color: #f1f1f1;
+}
+
+.cardBody ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardBody li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.cardBody input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.cardBody label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #eee;
+  display: flex;
+  align-items: center;
+}
+
+.itemPrice {
+  margin-left: auto;
+  font-weight: 600;
+  color: darkslategray;
+}
+
+.cardBody button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: darkslategray;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.cardBody button:hover:not(:disabled) {
+  background: darkslategray;
+  transform: translateY(-2px);
+}
+
+.cardBody button:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.customCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid darkslategray;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+}
+
+.customCheckbox:checked {
+  background-color:darkslategray ;
+}
+
+.customCheckbox:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 3px;
+}
+
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
