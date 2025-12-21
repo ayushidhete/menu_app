@@ -1,5 +1,6 @@
 html, body {
-  background-color: black;
+  background-color: #FFF8F1;
+  color:#2E2E2E;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -7,6 +8,14 @@ html, body {
 }
 :root {
   --nav-height: 80px;
+
+  --primary: #6F4E37;   /* Coffee Brown */
+  --primary-hover: #5A3E2B;
+  --accent: #C97C5D;    /* Caramel */
+  --bg: #FFF8F1;        /* Warm Ivory */
+  --card: #EADBC8;      /* Cream Beige */
+  --text: #2E2E2E;
+  --white: #FFFFFF;
 }
 
 main.main-content {
@@ -15,7 +24,7 @@ main.main-content {
 }
 
 /* Background video */
-.video-container {
+/* .video-container {
   position: fixed;
   inset: 0;           
   z-index: -1;        
@@ -23,11 +32,9 @@ main.main-content {
 }
 
 .bg-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(10px);
-}
+  filter: blur(6px);
+  opacity:0.12
+} */
 
 
 .nav {
@@ -36,12 +43,15 @@ main.main-content {
   left: 0;
   width: 100%;         
   height: 90px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
-  background-color: transparent;
-  backdrop-filter: blur(20px);
+
+  background-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  
   box-sizing: border-box;
   z-index: 1000;      
 }
@@ -49,6 +59,7 @@ main.main-content {
 
 .home-logo {
   color: white;
-  font-size: 48px;
+  font-size: 26px;
+  font-weight: 600;
   cursor: pointer;
 }

@@ -26,27 +26,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
-        <div className="video-container">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        
+        {/* <div className="video-container">
           <video autoPlay loop muted playsInline className="bg-video">
             <source src="/bgFogVideo.mp4" type="video/mp4" />
           </video>
-        </div>
+        </div> */}
 
-        <div className="nav">
-          <p
-            className={macondo.className}
-            style={{ color: "white", fontSize: "48px" }}
-          >
-            {"Boss's Cafe"}
+        <header className="nav">
+          <p className={`home-logo ${macondo.className}`}>
+            Smart Café
           </p>
-          <Link href="/">
-            <TiHome className="home-logo" />
+
+          <Link href="/" aria-label="Home">
+            <TiHome size={26} color="white" />
           </Link>
-        </div>
+        </header>
+
         <main className="main-content">{children}</main>
       </body>
     </html>

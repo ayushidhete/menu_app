@@ -1,24 +1,25 @@
 .page {
   padding: 16px;
-  background: #0b0f1ab5;
+  background: #FFF8F1;
   min-height: 100vh;
-  color: white;
+  color: #2E2E2E;
   font-family: "Segoe UI", sans-serif;
 
   width: 90%;
-  max-width: 480px;   
-  margin: 0 auto;     
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-
+/* ---------- HEADING ---------- */
 .heading {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 24px;
   text-align: center;
-  color: #f8fafc;
+  color: #6F4E37;
 }
 
+/* ---------- CATEGORY ---------- */
 .category {
   margin-bottom: 40px;
 }
@@ -27,11 +28,12 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
-  color: darkslategray;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #6F4E37;
+  border-bottom: 1px solid rgba(111, 78, 55, 0.25);
   padding-bottom: 6px;
 }
 
+/* ---------- ITEM LIST ---------- */
 .itemList {
   list-style: none;
   padding: 0;
@@ -40,22 +42,26 @@
   gap: 12px;
 }
 
+/* ---------- ITEM CARD ---------- */
 .card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1e293b;
+
+  background: #EADBC8;
   padding: 14px 18px;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+
+  box-shadow: 0 10px 24px rgba(111, 78, 55, 0.25);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 32px rgba(111, 78, 55, 0.35);
 }
 
+/* ---------- ITEM INFO ---------- */
 .itemInfo {
   display: flex;
   flex-direction: column;
@@ -64,16 +70,17 @@
 .itemName {
   font-size: 16px;
   font-weight: 500;
-  color: #f1f5f9;
+  color: #2E2E2E;
 }
 
 .price {
   font-size: 14px;
-  color: #fbbf24;
+  color: #C97C5D;
   margin-top: 4px;
   font-weight: 600;
 }
 
+/* ---------- CONTROLS (+ / -) ---------- */
 .controls {
   display: flex;
   align-items: center;
@@ -83,18 +90,21 @@
 .btn {
   width: 32px;
   height: 32px;
-  border: none;
   border-radius: 8px;
-  background: #334155;
-  color: white;
+
+  background: #FFF8F1;
+  color: #6F4E37;
+
+  border: 1px solid #C97C5D;
   font-size: 18px;
   font-weight: bold;
+
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .btn:hover:not(:disabled) {
-  background: #475569;
+  background: #EADBC8;
 }
 
 .btn:disabled {
@@ -109,6 +119,7 @@
   font-size: 16px;
 }
 
+/* ---------- TOP BAR ---------- */
 .topbar {
   display: flex;
   align-items: center;
@@ -117,79 +128,146 @@
   margin-bottom: 12px;
 }
 
+/* ---------- TOGGLE GROUP ---------- */
 .toggleGroup {
   display: inline-flex;
   gap: 8px;
-  background: #0b1220;
+  background: #EADBC8;
   padding: 6px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid #C97C5D;
 }
 
 .toggleBtn {
-  position: relative;
   padding: 8px 12px;
   border-radius: 10px;
   border: 1px solid transparent;
+
   background: transparent;
-  color: #cbd5e1;
+  color: #5A3E2B;
   font-weight: 600;
+
   cursor: pointer;
 }
-.toggleBtn:hover { color: #fff; }
-.toggleBtn:disabled { opacity: .6; cursor: not-allowed; }
 
-.active {
-  background: #111827;
-  color: #fff;
-  border-color: #334155;
+.toggleBtn:hover {
+  color: #6F4E37;
 }
 
+.toggleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.active {
+  background: #6F4E37;
+  color: #FFFFFF;
+  border-color: #5A3E2B;
+}
+
+/* ---------- BADGE ---------- */
 .badge {
   margin-left: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-width: 20px;
   height: 20px;
   padding: 0 6px;
+
   border-radius: 999px;
-  background: #16a34a;
-  color: #fff;
+  background: #C97C5D;
+  color: #FFFFFF;
+
   font-size: 12px;
   font-weight: 700;
 }
 
-/* Orders view */
-.orderWrap { 
-    width: 90%;
-    max-width: 640px; 
-    margin: 0 auto; 
+/* ---------- ORDERS VIEW ---------- */
+.orderWrap {
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
 }
-.sumList { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+
+.sumList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
 .sumRow {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 12px; border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  background: #EADBC8;
+  border: 1px solid #C97C5D;
 }
-.sumLeft { display: flex; align-items: baseline; gap: 8px; }
-.sumName { font-weight: 600; color: #f1f5f9; }
-.sumQty { font-style: normal; opacity: .75; }
-.sumAmount { font-weight: 700; color: #fbbf24; }
+
+.sumLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sumName {
+  font-weight: 600;
+  color: #2E2E2E;
+}
+
+.sumQty {
+  opacity: 0.75;
+}
+
+.sumAmount {
+  font-weight: 700;
+  color: #C97C5D;
+}
 
 .totalRow {
-  display: flex; justify-content: space-between;
-  border-top: 1px dashed rgba(255,255,255,.25);
-  padding-top: 10px; margin-top: 12px; font-size: 1.05rem;
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px dashed rgba(111, 78, 55, 0.4);
+  padding-top: 10px;
+  margin-top: 12px;
+
+  font-size: 1.05rem;
 }
 
-.actionsRow { display: flex; gap: 10px; margin-top: 12px; }
-.clearBtn, .primaryBtn {
-  flex: 1; padding: 10px 12px; border-radius: 10px;
-  border: 1px solid #334155; background: #111827; color: #fff; font-weight: 600;
+/* ---------- ACTION BUTTONS ---------- */
+.actionsRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
 }
-.primaryBtn { background: #1e293b; border-color: #475569; }
-.clearBtn:hover { background: #1f2937; }
-.primaryBtn:hover { background: #263445; }
-.muted { opacity: .7; }
+
+.clearBtn,
+.primaryBtn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  background: #6F4E37;
+  color: #FFFFFF;
+  font-weight: 600;
+
+  border: none;
+  cursor: pointer;
+}
+
+.clearBtn:hover,
+.primaryBtn:hover {
+  background: #5A3E2B;
+}
+
+.muted {
+  opacity: 0.7;
+}

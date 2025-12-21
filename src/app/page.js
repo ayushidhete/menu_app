@@ -22,7 +22,7 @@ export default function Home() {
         toast.error("Invalid Table Number", {
           position: "top-center",
           autoClose: 3000,
-          theme: "dark",
+          theme: "light",
           transition: Bounce,
         });
         return;
@@ -39,7 +39,7 @@ export default function Home() {
       toast.error("Please try again...", {
         position: "top-center",
         autoClose: 3000,
-        theme: "dark",
+        theme: "light",
         transition: Bounce,
       });
     } finally {
@@ -55,7 +55,7 @@ export default function Home() {
       toast.info("Order Deleted...", {
         position: "top-center",
         autoClose: 3000,
-        theme: "dark",
+        theme: "light",
         transition: Bounce,
       });
       setShowPopUp(false);
@@ -65,7 +65,7 @@ export default function Home() {
       toast.error("Error in Deleting Order", {
         position: "top-center",
         autoClose: 3000,
-        theme: "dark",
+        theme: "light",
         transition: Bounce,
       });
     } finally {
@@ -90,7 +90,7 @@ export default function Home() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
         transition={Bounce}
       />
       {loading && (
@@ -99,45 +99,46 @@ export default function Home() {
         </div>
       )}
 
-      {/* Background overlays */}
+      {/* Background overlays
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-white/10 to-black/40 backdrop-blur-lg"></div>
-      <div className="absolute inset-0 bg-black/30 rounded-2xl pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)]"></div>
+      <div className="absolute inset-0 bg-black/30 rounded-2xl pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)]"></div> */}
 
-      <div className={styles.nav}>
-        <input
-          type="number"
-          value={tableNum}
-          className={styles.input}
-          placeholder="Enter Table Number..."
-          onChange={(e) => setTableNum(e.target.value)}
-        />
+    <div className={styles.nav}>
+  <div className={styles.mainCard}>
+    <input
+      type="number"
+      value={tableNum}
+      className={styles.input}
+      placeholder="Table number"
+      onChange={(e) => setTableNum(e.target.value)}
+    />
 
-        <button
-          className={`${styles.button} ${macondo.className}`}
-          onClick={goToTablePage}
-        >
-          New Order
-        </button>
+    <button
+      className={`${styles.button} ${macondo.className}`}
+      onClick={goToTablePage}
+    >
+      New Order
+    </button>
 
-        <button
-          onClick={() => router.push(`/orders`)}
-          className={`${styles.button} ${macondo.className}`}
-        >
-          View Orders
-        </button>
+    <button
+      onClick={() => router.push(`/orders`)}
+      className={`${styles.button} ${macondo.className}`}
+    >
+      View Orders
+    </button>
 
-        {/* ✅ New Dashboard Button */}
-        <button
-          onClick={() => router.push(`/dashboard`)}
-          className={`${styles.button} ${macondo.className}`}
-        >
-          Dashboard
-        </button>
+    <button
+      onClick={() => router.push(`/dashboard`)}
+      className={`${styles.button} ${macondo.className}`}
+    >
+      Dashboard
+    </button>
 
-        <Link href="./menu" className={styles.menu_link}>
-          Menu
-        </Link>
-      </div>
+    <Link href="./menu" className={styles.menu_link}>
+      View Menu
+    </Link>
+  </div>
+</div>
 
       {showPopUp && (
         <div className={styles.overlay} onClick={closepopUp}>
