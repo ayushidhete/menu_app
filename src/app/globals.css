@@ -8,7 +8,6 @@ html, body {
 }
 :root {
   --nav-height: 64px;
-
   --primary: #6F4E37;   /* Coffee Brown */
   --primary-hover: #5A3E2B;
   --accent: #C97C5D;    /* Caramel */
@@ -39,13 +38,10 @@ main.main-content {
 .nav {
   height: 64px;
   background-color: #6F4E37;
-
   display: flex;
   align-items: center;          /* 🔥 vertical center */
   justify-content: space-between;
-
   padding: 0 20px;
-
   position: fixed;
   top: 0;
   left: 0;
