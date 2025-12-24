@@ -60,6 +60,7 @@
 
 .cardBody li {
   margin: 10px 0;
+  gap: 8px;
   display: flex;
   align-items: center;
 }
@@ -72,7 +73,7 @@
 .cardBody label {
   font-size: 15px;
   font-weight: 500;
-  color: #eee;
+  color:#2c1a0d;
   display: flex;
   align-items: center;
 }

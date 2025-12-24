@@ -6,6 +6,12 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
+import { 
+  MdAddCircleOutline, 
+  MdViewList, 
+  MdDashboard,MdTableRestaurant, MdCoffee,MdRestaurantMenu 
+} from "react-icons/md";
+import { FaCoffee, FaSeedling } from "react-icons/fa";
 
 const macondo = Macondo({ subsets: ["latin"], weight: "400" });
 
@@ -35,7 +41,6 @@ export default function Home() {
       }
       router.push(`/table/${tableNum}`);
     } catch (err) {
-      console.error("goToTablePage error:", err?.response ?? err);
       toast.error("Please try again...", {
         position: "top-center",
         autoClose: 3000,
@@ -50,8 +55,7 @@ export default function Home() {
   const deleteOrder = async () => {
     try {
       setLoading(true);
-      const res = await axios.delete(`/api/orders/${tableNum}`);
-      console.log("delete res:", res.data);
+      await axios.delete(`/api/orders/${tableNum}`);
       toast.info("Order Deleted...", {
         position: "top-center",
         autoClose: 3000,
@@ -60,8 +64,7 @@ export default function Home() {
       });
       setShowPopUp(false);
       setTableNum("");
-    } catch (err) {
-      console.error("deleteOrder error:", err?.response ?? err);
+    } catch {
       toast.error("Error in Deleting Order", {
         position: "top-center",
         autoClose: 3000,
@@ -80,66 +83,84 @@ export default function Home() {
 
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition={Bounce}
-      />
+      <ToastContainer transition={Bounce} />
+
       {loading && (
         <div className={styles.loaderOverlay}>
           <div className={styles.spinner}></div>
         </div>
       )}
 
-      {/* Background overlays
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-white/10 to-black/40 backdrop-blur-lg"></div>
-      <div className="absolute inset-0 bg-black/30 rounded-2xl pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)]"></div> */}
+      {/* MAIN AREA */}
+      <main className={styles.main}>
+        {/* background blobs */}
+        <div className={styles.blob1}></div>
+        <div className={styles.blob2}></div>
+        <div className={styles.blob3}></div>
 
-    <div className={styles.nav}>
-  <div className={styles.mainCard}>
-    <input
-      type="number"
-      value={tableNum}
-      className={styles.input}
-      placeholder="Table number"
-      onChange={(e) => setTableNum(e.target.value)}
-    />
-
-    <button
-      className={`${styles.button} ${macondo.className}`}
-      onClick={goToTablePage}
-    >
-      New Order
-    </button>
-
-    <button
-      onClick={() => router.push(`/orders`)}
-      className={`${styles.button} ${macondo.className}`}
-    >
-      View Orders
-    </button>
-
-    <button
-      onClick={() => router.push(`/dashboard`)}
-      className={`${styles.button} ${macondo.className}`}
-    >
-      Dashboard
-    </button>
-
-    <Link href="./menu" className={styles.menu_link}>
-      View Menu
-    </Link>
-  </div>
+        {/* Background doodles */}
+<div className={styles.doodles}>
+  <MdCoffee className={`${styles.doodle} ${styles.doodleCup}`} />
+  <FaSeedling className={`${styles.doodle} ${styles.doodleBean}`} />
+  <FaCoffee className={`${styles.doodle} ${styles.doodleCroissant}`} />
+  <MdRestaurantMenu className={`${styles.doodle} ${styles.doodleMenu}`} />
 </div>
 
+
+        {/* CARD */}
+        <div className={styles.mainCard}>
+          {/* <h2 className={styles.title}>Welcome Back</h2>
+          <p className={styles.subtitle}>
+            Manage your café operations seamlessly.
+          </p> */}
+
+          <div className={styles.inputWrapper}>
+              <MdTableRestaurant className={styles.inputIconLeft} />
+  <input
+    type="number"
+    value={tableNum}
+    className={styles.input}
+    placeholder="Enter Table Number"
+    onChange={(e) => setTableNum(e.target.value)}
+  />
+</div>
+
+
+        <button
+  className={`${styles.primaryBtn} ${macondo.className}`}
+  onClick={goToTablePage}
+>
+  <MdAddCircleOutline size={20} />
+  New Order
+</button>
+
+<button
+  onClick={() => router.push(`/orders`)}
+  className={`${styles.secondaryBtn} ${macondo.className}`}
+>
+  <MdViewList size={20} />
+  View Orders
+</button>
+
+<button
+  onClick={() => router.push(`/dashboard`)}
+  className={`${styles.secondaryBtn} ${macondo.className}`}
+>
+  <MdDashboard size={20} />
+  Dashboard
+</button>
+
+
+         <div className={styles.lineDivider}></div>
+
+          <Link href="./menu" className={styles.menuLink}>
+          <MdRestaurantMenu size={18} />
+            View Full Menu
+          </Link>
+        </div>
+      </main>
+
+      {/* POPUP (NO CHANGE) */}
       {showPopUp && (
         <div className={styles.overlay} onClick={closepopUp}>
           <div

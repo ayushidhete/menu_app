@@ -1,70 +1,242 @@
-.nav {
-  margin-top: 120px; /* pushes content below navbar */
+.main {
+  height: calc(100vh - 64px);  /* 🔥 exact remaining height */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 14px;
+  position: relative;
+  overflow: hidden;
 }
+
+.blob1,
+.blob2,
+.blob3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.blob1 {
+  width: 320px;
+  height: 320px;
+  background: rgba(111, 78, 55, 0.25);
+  top: -100px;
+  left: -100px;
+}
+
+.blob2 {
+  width: 260px;
+  height: 260px;
+  background: rgba(234, 219, 200, 0.6);
+  right: -80px;
+  top: 45%;
+}
+
+.blob3 {
+  width: 300px;
+  height: 300px;
+  background: rgba(200, 200, 200, 0.4);
+  bottom: -120px;
+  left: 30%;
+}
+
+.doodles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;              /* behind card */
+  pointer-events: none;    /* 🔥 important */
+}
+.doodle {
+  position: absolute;
+  opacity: 0.15;
+  color: #6F4E37;
+
+  animation: float 12s ease-in-out infinite;
+}
+.doodleCup {
+  top: 12%;
+  left: 6%;
+  font-size: 48px;
+}
+
+.doodleBean {
+  top: 28%;
+  right: 10%;
+  font-size: 36px;
+  animation-delay: 2s;
+}
+
+.doodleCroissant {
+  bottom: 22%;
+  left: 12%;
+  font-size: 42px;
+  animation-delay: 4s;
+}
+
+.doodleMenu {
+  bottom: 14%;
+  right: 14%;
+  font-size: 40px;
+  animation-delay: 6s;
+}
+
 
 /* ---------- BUTTONS ---------- */
-.button {
-  width: 180px;
-  height: 42px;
-
-  background-color: #6F4E37; /* coffee brown */
-  color: #FFFFFF;
-
-  border: none;
-  border-radius: 20px;
-
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.btnIcon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
-.button:hover {
-  background-color: #5A3E2B; /* darker coffee */
+.primaryBtn svg,
+.secondaryBtn svg {
+  flex-shrink: 0;
+}
+
+.primaryBtn {
+  width: 100%;
+  height: 52px;
+
+  background-color: #6F4E37;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #5A3E2B;
+  box-shadow: 0 8px 22px rgba(111, 78, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.primaryBtn:active {
+  transform: scale(0.97);
+}
+
+.secondaryBtn {
+  width: 100%;
+  height: 52px;
+
+  background-color: #ffffff;
+  color: #6F4E37;
+
+  border: 1px solid rgba(111, 78, 55, 0.25);
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: #F7EFE8;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.secondaryBtn:active {
+  transform: scale(0.97);
 }
 
 /* ---------- INPUT ---------- */
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.inputIconLeft {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #8a6a55;
+  pointer-events: none;
+}
+
+/* .inputIconRight {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #8a6a55;
+  pointer-events: none;
+} */
+
 .input {
   width: 100%;
-  max-width: 260px;
-  height: 44px;
+  height: 50px;
 
-  background-color: #EADBC8; /* cream beige */
-  color: #2E2E2E;
+  padding-left: 40px;   /* table icon */
+  padding-right: 20px;  
 
-  border: 1px solid #C97C5D;
-  border-radius: 16px;
+  background-color: #fff;
+  color: #6F4E37;
 
-  padding: 0 12px;
-  font-size: 14px;
+  border: 2px solid #2E2E2E;
+  border-radius: 18px;
+  box-sizing: border-box;
+  font-size: 15px;
   outline: none;
 }
+
 
 .input:focus {
   border-color: #6F4E37;
 }
 
 /* ---------- LINKS ---------- */
-.menu_link {
-  margin-top: 12px;
-  padding-top: 14px;
-
+.lineDivider {
   width: 100%;
-  text-align: center;
-
-  font-size: 16px;
-  color: #6F4E37;
-
-  border-top: 1px solid rgba(111, 78, 55, 0.3);
-  text-decoration: none;
+  height: 1px;
+  background-color: rgba(111, 78, 55, 0.35);
+  margin: 18px 0;
 }
 
-.menu_link:hover {
+.menuLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #6F4E37;
+  font-weight: 600;
+  font-size: 15px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menuLink:hover {
   text-decoration: underline;
 }
+
+
 
 /* ---------- POPUP ---------- */
 .pop_up_div {
@@ -129,8 +301,8 @@
 }
 
 .mainCard {
-  background-color: #EADBC8;
-  padding: 32px 28px;
+  background-color: #FFF8F1;
+  padding: 36px 30px;
   border-radius: 28px;
 
   display: flex;
@@ -141,9 +313,18 @@
   min-width: 320px;
   max-width: 380px;
 
-  box-shadow: 0 16px 32px rgba(111, 78, 55, 0.25);
+  box-shadow: 0 20px 40px rgba(111, 78, 55, 0.25);
+  z-index: 1;
 }
-
+.coffee-logo:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
 @keyframes spin {
   to {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Geist, Geist_Mono, Macondo } from "next/font/google";
 import "./globals.css";
 import { TiHome } from "react-icons/ti";
+import { FaCoffee } from "react-icons/fa";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,16 +29,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         
-        {/* <div className="video-container">
-          <video autoPlay loop muted playsInline className="bg-video">
-            <source src="/bgFogVideo.mp4" type="video/mp4" />
-          </video>
-        </div> */}
-
+        {/* HEADER */}
         <header className="nav">
-          <p className={`home-logo ${macondo.className}`}>
-            Smart Café
-          </p>
+          <div className="nav-left">
+          <FaCoffee size={24} color="white" />
+            <p className={`home-logo ${macondo.className}`}>Smart Café</p>
+          </div>
 
           <Link href="/" aria-label="Home">
             <TiHome size={26} color="white" />
