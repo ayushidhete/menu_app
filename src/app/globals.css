@@ -1,47 +1,39 @@
 html, body {
   background-color: #FFF8F1;
-  color:#2E2E2E;
+  color: #2E2E2E;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  
 }
+
 :root {
   --nav-height: 64px;
-  --primary: #6F4E37;   /* Coffee Brown */
+  --primary: #6F4E37;
   --primary-hover: #5A3E2B;
-  --accent: #C97C5D;    /* Caramel */
-  --bg: #FFF8F1;        /* Warm Ivory */
-  --card: #EADBC8;      /* Cream Beige */
+  --accent: #C97C5D;
+  --bg: #FFF8F1;
+  --card: #EADBC8;
   --text: #2E2E2E;
   --white: #FFFFFF;
 }
 
 main.main-content {
-  padding-top: var(--nav-height); 
+  padding-top: var(--nav-height);
   box-sizing: border-box;
 }
 
-/* Background video */
-/* .video-container {
-  position: fixed;
-  inset: 0;           
-  z-index: -1;        
-  overflow: hidden;
-}
-
-.bg-video {
-  filter: blur(6px);
-  opacity:0.12
-} */
+/* ---------- NAVBAR ---------- */
 
 .nav {
   height: 64px;
-  background-color: #6F4E37;
+  background-color: var(--primary);
+
   display: flex;
-  align-items: center;          /* 🔥 vertical center */
+  align-items: center;
   justify-content: space-between;
+
   padding: 0 20px;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -51,24 +43,38 @@ main.main-content {
 
 .nav-left {
   display: flex;
-  align-items: center;          /* 🔥 icon + text aligned */
+  align-items: center;
   gap: 10px;
 }
 
+/* Coffee icon */
 .coffee-icon {
+  color: white;
+  font-size: 26px;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  font-size: 26px;              /* adjust if needed */
-  line-height: 1;               /* 🔥 removes vertical offset */
+  line-height: 1;
 }
 
+/* Brand text */
 .home-logo {
-  font-size: 22px;
   color: white;
-
-  line-height: 1;               /* 🔥 critical */
+  font-size: 22px;
+  line-height: 1;
   display: flex;
   align-items: center;
+}
+
+/* Home icon (right side) */
+.home-icon {
+  color: white;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Fix SVG vertical shift */
+svg {
+  vertical-align: middle;
 }

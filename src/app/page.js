@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic"
 import styles from "./styles/home.module.css";
 import { useState } from "react";
 import { Macondo } from "next/font/google";

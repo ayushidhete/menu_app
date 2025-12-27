@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import styles from "../styles/dashboard.module.css";
 
@@ -10,6 +11,7 @@ export default function SimpleDashboard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     let mounted = true;
     setLoading(true);
     fetch(`/api/stats?days=${days}`)

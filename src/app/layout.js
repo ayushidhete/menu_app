@@ -1,23 +1,8 @@
+import "./globals.css";
 import Link from "next/link";
 import { Macondo } from "next/font/google";
-import "./globals.css";
 import { TiHome } from "react-icons/ti";
 import { FaCoffee } from "react-icons/fa";
-import { GeistSans, GeistMono } from "geist/font";
-
-const geistSans = GeistSans();
-const geistMono = GeistMono();
-
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 const macondo = Macondo({
   subsets: ["latin"],
@@ -32,17 +17,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <body className={`${geistSans.className} ${geistMono.className}`}>
-        
+      <body className={macondo.className}>
         {/* HEADER */}
         <header className="nav">
           <div className="nav-left">
-          <FaCoffee size={24} color="white" />
-            <p className={`home-logo ${macondo.className}`}>Smart Café</p>
+            <FaCoffee className="coffee-icon" />
+            <p className="home-logo">Smart Café</p>
           </div>
 
-          <Link href="/" aria-label="Home">
-            <TiHome size={26} color="white" />
+          <Link href="/" aria-label="Home" className="home-icon">
+            <TiHome />
           </Link>
         </header>
 

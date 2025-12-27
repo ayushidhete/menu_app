@@ -1,13 +1,14 @@
 "use client";
-import React, { use,useEffect, useMemo, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+export const dynamic = "force-dynamic";
+import React, { useEffect, useMemo, useState } from "react";
+import { useParams, useSearchParams, useRouter } from "next/navigation";
 import menuData from "@/Data/menu.json";
 import styles from "../../styles/tablePage.module.css";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 
 export default function TablePage({ params }) {
-  const {table} =use(params) ;
+  const {table} =useParams() ;
   const searchParams = useSearchParams();
   const editing = searchParams?.get("edit") === "true";
   const router = useRouter();
