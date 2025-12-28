@@ -1,21 +1,23 @@
 .main {
-  height: calc(100vh - 64px);  /* 🔥 exact remaining height */
+  min-height: calc(100vh - var(--nav-height));
   display: flex;
+  align-items: center;    /* 🔥 keeps card vertically centered */
   justify-content: center;
-  align-items: center;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
 
 .blob1,
 .blob2,
 .blob3 {
   position: absolute;
+  width: 420px;
+  height: 420px;
+  background: rgba(234, 219, 200, 0.35);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
 }
-
 .blob1 {
   width: 320px;
   height: 320px;
@@ -320,6 +322,79 @@
   transform: translateY(-1px);
   transition: transform 0.2s ease;
 }
+/* ---------- OUR FAVOURITES ---------- */
+
+.favoritesSection {
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+  padding: 0 20px 60px;
+  text-align: center;
+}
+
+.favoritesTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #6F4E37;
+  margin-bottom: 32px;
+}
+
+.favoritesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.favoriteCard {
+  background: #FFFFFF;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favoriteCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+.favoriteCard img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.favoriteInfo {
+  padding: 14px;
+  text-align: left;
+}
+
+.favoriteInfo h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #2E2E2E;
+}
+
+.favoriteInfo p {
+  font-size: 13px;
+  color: #5A3E2B;
+  margin: 6px 0 10px;
+}
+
+.favoriteInfo span {
+  font-weight: 600;
+  color: #6F4E37;
+}
+.pageBg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;              /* 🔥 visible but behind content */
+  overflow: hidden;
+  pointer-events: none;
+}
+
 @keyframes float {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-10px); }
