@@ -4,7 +4,7 @@
   min-height: 100vh;
   color: #2E2E2E;
   font-family: "Segoe UI", sans-serif;
-
+  padding-bottom: 110px;   /* space for bottom bar */
   width: 90%;
   max-width: 480px;
   margin: 0 auto;
@@ -270,4 +270,60 @@
 
 .muted {
   opacity: 0.7;
+}
+.menuBottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;          /* full screen width */
+
+  background: #ffffff;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+  z-index: 9999;
+}
+
+.menuBottomInner {
+  width: 90%;
+  max-width: 480px;
+  margin: 0 auto;
+
+  padding: 14px 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuTotalBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuTotalLabel {
+  font-size: 11px;
+  color: #8b6b57;
+  letter-spacing: 0.4px;
+}
+
+.menuTotalAmount {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6F4E37;
+}
+
+.menuPlaceBtn {
+  background: #6F4E37;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menuPlaceBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

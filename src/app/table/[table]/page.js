@@ -121,39 +121,70 @@ export default function TablePage({ params }) {
             </button>
           </div>
         </header>
+      {!showOrder && (
+  <>
+    {Object.entries(menuData).map(([category, items]) => (
+      <div key={category} className={styles.category}>
+        <h2 className={styles.categoryTitle}>{category}</h2>
+        <ul className={styles.itemList}>
+          {items.map((item) => {
+            const k = `${category}::${item.name}`;
+            const count = qty[k] || 0;
+            return (
+              <li key={k} className={styles.card}>
+                <div className={styles.itemInfo}>
+                  <span className={styles.itemName}>{item.name}</span>
+                  <span className={styles.price}>₹{item.price}</span>
+                </div>
 
-        {!showOrder && (
-          <>
-            {Object.entries(menuData).map(([category, items]) => (
-              <div key={category} className={styles.category}>
-                <h2 className={styles.categoryTitle}>{category}</h2>
-                <ul className={styles.itemList}>
-                  {items.map((item) => {
-                    const k = `${category}::${item.name}`;
-                    const count = qty[k] || 0;
-                    return (
-                      <li key={k} className={styles.card}>
-                        <div className={styles.itemInfo}>
-                          <span className={styles.itemName}>{item.name}</span>
-                          <span className={styles.price}>₹{item.price}</span>
-                        </div>
-                        <div className={styles.controls}>
-                          <button className={styles.btn} onClick={() => dec(k)} disabled={count === 0} aria-label={`Decrease ${item.name}`}>
-                            –
-                          </button>
-                          <span className={styles.count}>{count}</span>
-                          <button className={styles.btn} onClick={() => inc(k)} aria-label={`Increase ${item.name}`}>
-                            +
-                          </button>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </>
-        )}
+                <div className={styles.controls}>
+                  <button
+                    className={styles.btn}
+                    onClick={() => dec(k)}
+                    disabled={count === 0}
+                  >
+                    –
+                  </button>
+
+                  <span className={styles.count}>{count}</span>
+
+                  <button
+                    className={styles.btn}
+                    onClick={() => inc(k)}
+                  >
+                    +
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+
+    {/* ✅ BOTTOM BAR — MUST BE INSIDE SAME FRAGMENT */}
+    {cart.length > 0 && (
+      <div className={styles.menuBottomBar}>
+         <div className={styles.menuBottomInner}>
+        <div className={styles.menuTotalBox}>
+          <span className={styles.menuTotalLabel}>TOTAL AMOUNT</span>
+          <span className={styles.menuTotalAmount}>₹{total}</span>
+        </div>
+
+        <button
+          className={styles.menuPlaceBtn}
+          disabled={total === 0}
+          onClick={() => setShowOrder(true)}
+        >
+          Place Order →
+        </button>
+        </div>
+      </div>
+    )}
+  </>
+)}
+
+     
 
         {showOrder && (
           <section className={styles.orderWrap}>
