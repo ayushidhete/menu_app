@@ -1,4 +1,5 @@
 "use client";
+
 export const dynamic = "force-dynamic";
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
@@ -12,7 +13,7 @@ export default function TablePage({ params }) {
   const searchParams = useSearchParams();
   const editing = searchParams?.get("edit") === "true";
   const router = useRouter();
-
+  const [search, setSearch] = useState("");
   const [qty, setqty] = useState({});
   const [showOrder, setShowOrder] = useState(editing ? true : false);
   const [saving, setSaving] = useState(false);
@@ -107,123 +108,212 @@ export default function TablePage({ params }) {
   }
 
   return (
-    <>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick={false} rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" transition={Bounce} />
-      <div className={styles.page}>
-        <header className={styles.topbar}>
-          <h1 className={styles.heading}>Table : {table}</h1>
-          <div className={styles.toggleGroup}>
-            <button className={`${styles.toggleBtn} ${!showOrder ? styles.active : ""}`} onClick={() => setShowOrder(false)}>
-              Menu
-            </button>
-            <button className={`${styles.toggleBtn} ${showOrder ? styles.active : ""}`} onClick={() => setShowOrder(true)} disabled={cart.length === 0} title={cart.length === 0 ? "No items yet" : "View current order"}>
-              Orders
-            </button>
-          </div>
-        </header>
-      {!showOrder && (
   <>
-    {Object.entries(menuData).map(([category, items]) => (
-      <div key={category} className={styles.category}>
-        <h2 className={styles.categoryTitle}>{category}</h2>
-        <ul className={styles.itemList}>
-          {items.map((item) => {
-            const k = `${category}::${item.name}`;
-            const count = qty[k] || 0;
-            return (
-              <li key={k} className={styles.card}>
-                <div className={styles.itemInfo}>
-                  <span className={styles.itemName}>{item.name}</span>
-                  <span className={styles.price}>₹{item.price}</span>
-                </div>
+    <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      theme="dark"
+      transition={Bounce}
+    />
 
-                <div className={styles.controls}>
-                  <button
-                    className={styles.btn}
-                    onClick={() => dec(k)}
-                    disabled={count === 0}
-                  >
-                    –
-                  </button>
+    <div className={styles.page}>
 
-                  <span className={styles.count}>{count}</span>
+      {/* 🔍 STICKY SEARCH BAR */}
+{!showOrder && (
+  <div className={styles.searchSticky}>
+    <div className={styles.searchWrap}>
+     <span className={styles.searchIcon}>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="11"
+      cy="11"
+      r="7"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <line
+      x1="20"
+      y1="20"
+      x2="16.65"
+      y2="16.65"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+</span>
 
-                  <button
-                    className={styles.btn}
-                    onClick={() => inc(k)}
-                  >
-                    +
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    ))}
 
-    {/* ✅ BOTTOM BAR — MUST BE INSIDE SAME FRAGMENT */}
-    {cart.length > 0 && (
-      <div className={styles.menuBottomBar}>
-         <div className={styles.menuBottomInner}>
-        <div className={styles.menuTotalBox}>
-          <span className={styles.menuTotalLabel}>TOTAL AMOUNT</span>
-          <span className={styles.menuTotalAmount}>₹{total}</span>
-        </div>
+      <input
+        type="text"
+        placeholder="Find your favorite dish..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
+      {search && (
         <button
-          className={styles.menuPlaceBtn}
-          disabled={total === 0}
-          onClick={() => setShowOrder(true)}
+          className={styles.clearSearch}
+          onClick={() => setSearch("")}
+          aria-label="Clear search"
         >
-          Place Order →
+          ✕
         </button>
-        </div>
-      </div>
-    )}
-  </>
+      )}
+    </div>
+  </div>
 )}
 
-     
+      {/* 🔝 HEADER (ONLY ONCE) */}
+      <header className={styles.topbar}>
+        <h1 className={styles.heading}>Table : {table}</h1>
 
-        {showOrder && (
-          <section className={styles.orderWrap}>
-            <h2 className={styles.categoryTitle}>Current Order</h2>
+        <div className={styles.toggleGroup}>
+          <button
+            className={`${styles.toggleBtn} ${!showOrder ? styles.active : ""}`}
+            onClick={() => setShowOrder(false)}
+          >
+            Menu
+          </button>
 
-            {cart.length === 0 ? (
-              <p className={styles.muted}>No items yet.</p>
-            ) : (
-              <>
-                <ul className={styles.sumList}>
-                  {cart.map((it) => (
-                    <li key={it.key} className={styles.sumRow}>
-                      <div className={styles.sumLeft}>
-                        <span className={styles.sumName}>{it.name}</span>
-                        <em className={styles.sumQty}>× {it.qty}</em>
-                      </div>
-                      <span className={styles.sumAmount}>₹{it.price * it.qty}</span>
-                    </li>
-                  ))}
+          <button
+            className={`${styles.toggleBtn} ${showOrder ? styles.active : ""}`}
+            onClick={() => setShowOrder(true)}
+            disabled={cart.length === 0}
+          >
+            Orders
+          </button>
+        </div>
+      </header>
+
+      {/* 🍽 MENU */}
+      {!showOrder && (
+        <>
+          {Object.entries(menuData).map(([category, items]) => {
+            const filteredItems = items.filter(item =>
+              item.name.toLowerCase().includes(search.toLowerCase())
+            );
+
+            if (filteredItems.length === 0) return null;
+
+            return (
+              <div key={category} className={styles.category}>
+                <h2 className={styles.categoryTitle}>{category}</h2>
+                <ul className={styles.itemList}>
+                  {filteredItems.map(item => {
+                    const k = `${category}::${item.name}`;
+                    const count = qty[k] || 0;
+
+                    return (
+                      <li key={k} className={styles.card}>
+                        <div className={styles.itemInfo}>
+                          <span className={styles.itemName}>{item.name}</span>
+                          <span className={styles.price}>₹{item.price}</span>
+                        </div>
+
+                        <div className={styles.controls}>
+                          <button
+                            className={styles.btn}
+                            onClick={() => dec(k)}
+                            disabled={count === 0}
+                          >
+                            –
+                          </button>
+                          <span className={styles.count}>{count}</span>
+                          <button
+                            className={styles.btn}
+                            onClick={() => inc(k)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
+              </div>
+            );
+          })}
 
-                <div className={styles.totalRow}>
-                  <span>Total</span>
-                  <strong>₹{total}</strong>
+          {/* ⬇️ BOTTOM BAR */}
+          {cart.length > 0 && (
+            <div className={styles.menuBottomBar}>
+              <div className={styles.menuBottomInner}>
+                <div className={styles.menuTotalBox}>
+                  <span className={styles.menuTotalLabel}>TOTAL AMOUNT</span>
+                  <span className={styles.menuTotalAmount}>₹{total}</span>
                 </div>
 
-                <div className={styles.actionsRow}>
-                  <button className={styles.clearBtn} onClick={() => setqty({})}>
-                    Clear
-                  </button>
-                  <button className={styles.primaryBtn} onClick={placeOrder} disabled={saving === true}>
-                    {saving === true ? "Saving..." : editing ? "Update Order" : "Place Order"}
-                  </button>
-                </div>
-              </>
-            )}
-          </section>
-        )}
-      </div>
-    </>
-  );
-}
+                <button
+                  className={styles.menuPlaceBtn}
+                  disabled={total === 0}
+                  onClick={() => setShowOrder(true)}
+                >
+                  Place Order →
+                </button>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* 📦 ORDER SUMMARY */}
+      {showOrder && (
+        <section className={styles.orderWrap}>
+          <h2 className={styles.categoryTitle}>Current Order</h2>
+
+          {cart.length === 0 ? (
+            <p className={styles.muted}>No items yet.</p>
+          ) : (
+            <>
+              <ul className={styles.sumList}>
+                {cart.map((it) => (
+                  <li key={it.key} className={styles.sumRow}>
+                    <div className={styles.sumLeft}>
+                      <span className={styles.sumName}>{it.name}</span>
+                      <em className={styles.sumQty}>× {it.qty}</em>
+                    </div>
+                    <span className={styles.sumAmount}>
+                      ₹{it.price * it.qty}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className={styles.totalRow}>
+                <span>Total</span>
+                <strong>₹{total}</strong>
+              </div>
+
+              <div className={styles.actionsRow}>
+                <button
+                  className={styles.clearBtn}
+                  onClick={() => setqty({})}
+                >
+                  Clear
+                </button>
+                <button
+                  className={styles.primaryBtn}
+                  onClick={placeOrder}
+                  disabled={saving}
+                >
+                  {saving
+                    ? "Saving..."
+                    : editing
+                    ? "Update Order"
+                    : "Place Order"}
+                </button>
+              </div>
+            </>
+          )}
+        </section>
+      )}
+    </div>
+  </>
+)};
