@@ -202,9 +202,10 @@
 }
 
 .sumRow {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
+  gap: 12px;
 
   padding: 10px 12px;
   border-radius: 12px;
@@ -213,19 +214,41 @@
   border: 1px solid #C97C5D;
 }
 
-.sumLeft {
+.sumControls {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 8px;
+}
+
+.sumBtn {
+  width: 26px;
+  height: 26px;
+
+  border-radius: 8px;
+  border: 1px solid #C97C5D;
+
+  background: #FFF8F1;
+  color: #6F4E37;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sumBtn:hover {
+  background: #EADBC8;
+}
+
+.sumQty {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0.85; /* override old opacity */
 }
 
 .sumName {
   font-weight: 600;
   color: #2E2E2E;
-}
-
-.sumQty {
-  opacity: 0.75;
 }
 
 .sumAmount {
@@ -251,7 +274,6 @@
   margin-top: 12px;
 }
 
-.clearBtn,
 .primaryBtn {
   flex: 1;
   padding: 10px 12px;
@@ -265,7 +287,7 @@
   cursor: pointer;
 }
 
-.clearBtn:hover,
+
 .primaryBtn:hover {
   background: #5A3E2B;
 }
@@ -393,3 +415,4 @@
   align-items: center;
   justify-content: center;
 }
+

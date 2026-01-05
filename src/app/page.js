@@ -71,10 +71,10 @@ export default function Home() {
           <div className={styles.spinner}></div>
         </div>
       )}
-      
+
       {/* BACKGROUND ONLY */}
       <div className={styles.pageBg}>
-         <div className={styles.blob1}></div>
+        <div className={styles.blob1}></div>
         <div className={styles.blob2}></div>
         <div className={styles.blob3}></div>
 
@@ -175,13 +175,20 @@ export default function Home() {
           >
             <p>Order already exists for table {tableNum}</p>
             <div className={styles.pop_upButtondiv}>
-              <button
-                onClick={() => router.push(`/table/${tableNum}?edit=true`)}
-              >
+              <button className={styles.popUpbutton}
+                onClick={() => router.push(`/table/${tableNum}?edit=true`)}>
                 Update Order
               </button>
-              <button onClick={deleteOrder}>Cancel Order</button>
-              <button onClick={() => setShowPopUp(false)}>Go Back</button>
+
+              <button className={styles.popUpbutton}
+                onClick={deleteOrder}>
+                Cancel Order
+              </button>
+
+              <button className={styles.popUpbutton}
+                onClick={() => setShowPopUp(false)}>
+                Go Back
+              </button>
             </div>
           </div>
         </div>
